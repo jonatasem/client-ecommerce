@@ -1,0 +1,28 @@
+.footer-container {
+    background-color: black;
+    padding: 1rem;
+
+    .footer-left {
+        ul {
+            li {
+                list-style-type: none;
+                margin: 0.5rem 0 0 0;
+
+                a {
+                    color: silver;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .footer-right {
+        text-align: center;
+        color: silver;
+
+        a {
+            margin: 1rem auto;
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

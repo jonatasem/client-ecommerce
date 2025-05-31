@@ -1,0 +1,36 @@
+.home-container {
+    padding: 1.5rem;
+
+    .home-head {
+        h1 {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .home-main {
+        .layout-home {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        div {
+            text-align: center;
+            margin: 1rem;
+
+            img {
+                max-width: 200px;
+            }
+        }
+    }
+    .home-footer {
+        div {
+            display: flex;
+            
+            button {
+                max-width: max-content;
+                padding: 0.5rem;
+                margin: 1rem 1rem 0 0;
+            }
+        }
+    }
+}
