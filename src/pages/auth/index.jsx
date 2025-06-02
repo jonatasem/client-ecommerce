@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { LuLogIn } from "react-icons/lu";
 import './index.scss';
 
+import Loading from '../../components/loading'
 
 import { 
     FaWhatsapp,
@@ -61,7 +62,7 @@ export default function Auth() {
     };
 
     if (authLoading) {
-        return (<h1>Loading...</h1>); // Exibe carregamento durante autenticação
+        return (<Loading />); // Exibe carregamento durante autenticação
     }
 
     return (
