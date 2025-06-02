@@ -6,7 +6,7 @@ export default function orderServices() {
     const [refetchOrders, setRefetchOrders] = useState(true); // Estado para indicar necessidade de re-fetch
     const [ordersList, setOrdersList] = useState([]); // Lista de pedidos do usuário
 
-    const url = 'http://localhost:3000/orders'; // URL base para as requisições de pedidos
+    const url = `${import.meta.env.VITE_API_URL}/orders`; // URL base para as requisições de pedidos
 
     // Função para obter pedidos do usuário
     const getUserOrders = (userId) => {

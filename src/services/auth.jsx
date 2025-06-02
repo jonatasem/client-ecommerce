@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function authServices() {
     const [authLoading, setAuthLoading] = useState(false); // Estado de carregamento da autenticação
 
-    const url = 'http://localhost:3000/auth'; // URL base para as requisições de autenticação
+    const url = `${import.meta.env.VITE_API_URL}/auth`; // URL base para as requisições de autenticação
 
     // Função para login
     const login = (formData) => {

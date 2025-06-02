@@ -6,10 +6,10 @@ export default function platesServices() {
     const [refetchPlates, setRefetchPlates] = useState(true); // Estado para indicar necessidade de re-fetch
     const [platesList, setPlatesList] = useState([]); // Lista de pratos disponíveis
 
-    const url = 'http://localhost:3000/plates'; // URL base para as requisições de pratos
+    const url = `${import.meta.env.VITE_API_URL}/plates`; // URL base para as requisições de pratos
 
     // Função para obter pratos disponíveis
-    const getAvailablePlates = (userId) => {
+    const getAvailablePlates = () => {
         setPlatesLoading(true);
         
         fetch(`${url}/availables`, {

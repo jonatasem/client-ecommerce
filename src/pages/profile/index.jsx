@@ -5,6 +5,9 @@ import orderServices from "../../services/order"; // Serviço de pedidos
 import { LuLogOut, LuTimer, LuAlertCircle, LuCheckCircle } from "react-icons/lu"; // Ícones
 import { Link } from "react-router-dom"; // Link para navegação
 import Loading from "../../components/loading"; // Componente de carregamento
+import './index.scss';
+
+import imgProfile from '../../assets/img/profile/profile.png'
 
 export default function Profile() {
     const { logout } = authServices(); // Função de logout do serviço de autenticação
@@ -33,22 +36,23 @@ export default function Profile() {
     };
 
     return (
-        <div className="page-container">
-            <div>
-                <h1>{authData?.user?.fullname}</h1>
-                <h3>{authData?.user?.email}</h3>
+        <div className="profile-container">
+            <div className="profile-left">
+                <img src={imgProfile} alt="" />
+                <h1>Seja bem vindo(a)! {authData?.user?.fullname}</h1>
+                <h3>E-Mail: {authData?.user?.email}</h3>
+                <button onClick={handleLogout}>Logout <LuLogOut className="icon"/></button>
             </div>
 
-            <button onClick={handleLogout}>Logout <LuLogOut /></button>
+            <h1 className="title-profile">Histórico de Pedidos</h1>
 
             {ordersList.length > 0 ? (
-                <div className="orders-container">
+                <article className="profile-main">
                     {ordersList.map((order) => (
-                        <div key={order._id}>
-                            {/* Exibe status do pedido com ícone */}
-                            {order.pickupStatus === 'Pending' && <p><LuTimer /> {order.pickupStatus}</p>}
-                            {order.pickupStatus === 'Completed' && <p><LuCheckCircle /> {order.pickupStatus}</p>}
-                            {order.pickupStatus === 'Canceled' && <p><LuAlertCircle /> {order.pickupStatus}</p>}
+                        <div className="profile-main-layout" key={order._id}>
+                            {order.pickupStatus === 'Pending' && <p className="item-profile-pending"><LuTimer /> {order.pickupStatus}</p>}
+                            {order.pickupStatus === 'Completed' && <p className="item-profile-completed"><LuCheckCircle /> {order.pickupStatus}</p>}
+                            {order.pickupStatus === 'Canceled' && <p className="item-profile-canceled"><LuAlertCircle /> {order.pickupStatus}</p>}
                             <h3>{order.pickupTime}</h3>
                             {order.orderItems.map((item) => (
                                 <div key={item._id}>
@@ -58,12 +62,12 @@ export default function Profile() {
                             ))}
                         </div>
                     ))}
-                </div>
+                </article>
             ) : (
-                <div>
-                    You do not have orders yet.
-                    <Link to={'/plates'}>Click here and see our specialities!</Link>
-                </div>
+                <article className="profile-right">
+                    <p>Você ainda não realizou nenhum pedido!</p>
+                    <Link to={'/plates'}>Clique aqui e comece a comprar</Link>
+                </article>
             )}
         </div>
     );

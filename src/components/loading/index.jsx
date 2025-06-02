@@ -3,8 +3,8 @@ import './index.scss'
 
 export default function Loading() {
     return (
-        <div>
-            <CircularProgress color='inherit' />
+        <div className='loading-container'>
+            <CircularProgress />
         </div>
     )
 }

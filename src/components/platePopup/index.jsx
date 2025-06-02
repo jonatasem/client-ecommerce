@@ -1,17 +1,19 @@
-import { Dialog } from "@mui/material"; // Importa o componente Dialog do Material-UI
-import './index.scss'; // Importa estilos específicos
+import { Dialog } from "@mui/material";
+import './index.scss';
 
 export default function PlatePopup({ plateData, onClose, onAddToCart }) {
     return (
-        <Dialog open={true} onClose={onClose}> {/* Modal de popup para detalhes do prato */}
-            <div>
-                <img src={plateData.imgUrl} alt="" /> {/* Imagem do prato */}
+        <Dialog open={true} onClose={onClose}> 
+            <div className="item-plate-popup">
+                <img src={plateData.imgUrl} alt="" /> 
                 <div>
-                    <h2>{plateData.name}</h2> {/* Nome do prato */}
-                    <p>[{String(plateData.ingredients)}]</p> {/* Ingredientes */}
-                    <p>{plateData.description}</p> {/* Descrição do prato */}
-                    <h2>$ {plateData.price}</h2> {/* Preço do prato */}
-                    <button onClick={() => { onAddToCart(plateData); }}>Add to cart</button> {/* Botão para adicionar ao carrinho */}
+                    <h2>{plateData.name}</h2> 
+                    <p>[{String(plateData.ingredients)}]</p> 
+                    <p>{plateData.description}</p> 
+                    <h3>$ {plateData.price}</h3> 
+                    <div className="layout-popup">
+                        <button onClick={() => { onAddToCart(plateData); }}>Adicionar ao carrinho</button> 
+                    </div>
                 </div>
             </div>
         </Dialog>
