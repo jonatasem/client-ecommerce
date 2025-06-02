@@ -60,7 +60,7 @@ export default function Plates() {
 
     return (
         <section className="plates-container">
-            <article className="plates-head">
+            <article className="plates-head mobile">
                 <ul>
                     <li onClick={() => handleFilterChange("All")} 
                         className={filter === "All" ? "active" : ""}

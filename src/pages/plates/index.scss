@@ -74,6 +74,14 @@
                 width: calc(100% / 2);
             }
         }
+        .plates-head {
+            ul {
+                flex-direction: column;
+            }
+            button {
+                max-height: max-content;
+            }
+        }
     }
 }
 

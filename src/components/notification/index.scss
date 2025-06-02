@@ -26,3 +26,13 @@
         color: white;
     }
 }
+
+@media (max-width:768px) {
+    .notification-container {
+        padding: 5px;
+
+        span {
+            font-size: 12px;
+        }
+    }
+}
